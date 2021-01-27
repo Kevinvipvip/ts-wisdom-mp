@@ -1,0 +1,55 @@
+<view class="header" style="{{show_nav?'height: 100vh':'height: 88rpx'}}">
+  <view class="fiex-header">
+    <view class="logo">
+      <image src="{{imgs.logo}}" mode="withFix"></image>
+    </view>
+    <view class="icons">
+      <view class="icon mine">
+        <image src="{{imgs.mine}}" mode="withFix"></image>
+      </view>
+      <view class="icon scanning">
+        <image src="{{imgs.scanning}}" mode="withFix"></image>
+      </view>
+      <view class="icon search">
+        <image src="{{imgs.search}}" mode="withFix"></image>
+      </view>
+      <view class="icon" bindtap="fn_show_nav">
+        <image src="{{show_nav?imgs.nav_close:imgs.nav}}" mode="withFix"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="nav" style="{{'background-image: url('+imgs.nav_bg+')'}}">
+    <view class="border">
+      <image src="{{imgs.nav_border_top}}" mode="withFix"></image>
+    </view>
+    <view class="border b-border">
+      <image src="{{imgs.nav_border_bottom}}" mode="withFix"></image>
+    </view>
+
+    <block wx:for="{{nav}}" wx:key="index">
+      <view class="nav-item" style="{{nav_id===item.id?'height:300rpx':''}}">
+        <view class="first-nav" wx:if="{{item.s_nav.length}}" bindtap="fn_s_nav" data-index="{{index}}">{{item.name}}
+        </view>
+        <navigator class="first-nav" open-type="redirect" wx:else url="/pages/{{item.url}}/{{item.url}}"
+                   hover-class="none">{{item.name}}
+        </navigator>
+        <view class="icon-right {{nav_id===item.id?'change':''}}" wx:if="{{item.s_nav.length}}">
+          <image src="{{imgs.open_right}}"></image>
+        </view>
+        <view class="second-box" wx:if="{{nav_id===item.id}}">
+          <navigator class="first-nav" url="/pages/{{item.url}}/{{item.url}}" open-type="redirect" hover-class="none">
+            <text class="has-text" style="background-image: url('{{imgs.right}}')">{{item.name}}</text>
+          </navigator>
+          <view class="s-item">
+            <block wx:for="{{item.s_nav}}" wx:key="index" wx:for-item="v">
+              <navigator class="second-nav" url="/pages/{{v.s_url}}/{{v.s_url}}" open-type="redirect"
+                         hover-class="none">{{v.title}}
+              </navigator>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

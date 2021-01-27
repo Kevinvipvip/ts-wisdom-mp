@@ -1,13 +1,124 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="page">
+  <header></header>
+  <view class="banner white">
+    <swiper indicator-dots="{{true}}"
+            autoplay="{{true}}"
+            indicator-color="rgba(0, 0, 0, 0.4)"
+            indicator-active-color="rgba(0, 0, 0, 1)" class="swiper">
+      <block wx:for="{{slides}}" wx:key="index">
+        <swiper-item>
+          <view class="img" style="background-image: url('{{item.pic}}')"></view>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <!--门票预约-->
+  <view class="index-ticket white" style="background-image: url('{{imgs.bg_ticket}}')">
+    <view class="home-title">
+      <text>门票预约</text>
+      <navigator url="/pages/ticket/ticket" class="btn" hover-class="none">立即预约</navigator>
+    </view>
+    <view class="explain">
+      <text>【开放时间】</text>
+      <text>周一全天 闭馆</text>
+      <text>周二 - 周日9:00开馆-16:30停止检票-17:00闭馆</text>
+      <text class="change-color">* 周一逢国家法定节假日全天开放，除夕、大年初一闭馆</text>
+    </view>
   </view>
+
+  <!--精品馆藏-->
+  <view class="collection white">
+    <view class="home-title">
+      <text>精品馆藏</text>
+      <navigator url="/pages/collection/collection" class="btn home-more" hover-class="none">查看更多
+        <image src="{{imgs.right}}" mode="heightFix"></image>
+      </navigator>
+    </view>
+    <view class="collect-swiper-box">
+      <swiper class="collect-swiper" display-multiple-items="2.5" wx:if="{{collection.length>1}}">
+        <block wx:for="{{collection}}" wx:key="index">
+          <swiper-item>
+            <navigator url="/pages/detail_collect/detail_collect?id={{item.id}}" class="collect-item"
+                       hover-class="none">
+              <view class="img" style="background-image: url('{{item.cover}}')"></view>
+              <text class="one-line-ellipsis">{{item.title}}</text>
+            </navigator>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+
+  <!--活动预约-->
+  <view class="activity white" wx:if="{{activity.have_data}}">
+    <view class="home-title">
+      <text>活动预约</text>
+      <navigator url="/pages/activity/activity" class="btn home-more" hover-class="none">查看更多
+        <image src="{{imgs.right}}" mode="heightFix"></image>
+      </navigator>
+    </view>
+
+    <navigator url="/pages/detail_activity/detail_activity?id={{activity.id}}" hover-class="none" class="activity-cont">
+      <view class="img" style="background-image: url('{{activity.pic}}')">
+        <view class="tip">{{activity.state}}</view>
+      </view>
+      <view class="activity-title one-line-ellipsis">{{activity.title}}</view>
+      <view class="time">活动时间：{{activity.start_time}} - {{activity.end_time}}</view>
+    </navigator>
+
+  </view>
+
+  <!--精选展览-->
+  <view class="exhibition white" wx:if="{{exhibition.length>0}}">
+    <view class="home-title">
+      <text>精选展览</text>
+      <navigator url="/pages/exhibition/exhibition" hover-class="none" class="btn home-more">查看更多
+        <image src="{{imgs.right}}" mode="heightFix"></image>
+      </navigator>
+    </view>
+    <view class="exhibition-swiper-box">
+      <swiper class="exhibition-swiper" display-multiple-items="1.5" wx:if="{{exhibition.length>1}}">
+        <block wx:for="{{exhibition}}" wx:key="index">
+          <swiper-item>
+            <navigator url="/pages/detail_exhibit/detail_exhibit?id={{item.id}}" class="exhibition-item"
+                       hover-class="none">
+              <view class="img" style="background-image: url('{{item.cover}}')">
+                <view class="exhibition-time" style="background-image: url('{{imgs.time}}')">{{item.start_time}} -
+                  {{item.end_time}}
+                </view>
+              </view>
+              <view class="exhibition-title one-line-ellipsis">{{item.title}}</view>
+              <text>{{item.tag}}</text>
+            </navigator>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+
+  <!--新闻资讯-->
+  <view class="news-box white">
+    <view class="home-title">
+      <text>新闻资讯</text>
+      <navigator url="/pages/news/news" hover-class="none" class="btn home-more">查看更多
+        <image src="{{imgs.right}}" mode="heightFix"></image>
+      </navigator>
+    </view>
+    <view class="news-list">
+      <block wx:for="{{news}}" wx:key="index">
+        <navigator url="/pages/detail_news/detail_news?id={{item.id}}" hover-class="none" class="news-item">
+          <view class="cont">
+            <view class="news-title {{index===0?'one-line-ellipsis':'two-line-ellipsis'}}">{{item.title}}</view>
+            <view class="cont-bottom">
+              <text>{{item.create_time}}</text>
+              <text class="type bg{{item.type}}">{{item.type_name}}</text>
+            </view>
+          </view>
+          <view class="img" style="background-image: url('{{item.pic}}')"></view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+
 </view>

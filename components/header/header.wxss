@@ -1,0 +1,136 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background-color: #ffffff;
+    width: 100%;
+    height: 88rpx;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.header .fiex-header {
+    height: 88rpx;
+    margin: 0 24rpx;
+    display: flex;
+    align-items: center;
+}
+
+.header .logo {
+    width: 247rpx;
+    height: 40rpx;
+    flex-shrink: 0;
+}
+
+.header .icons {
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header .icons .icon {
+    width: 34rpx;
+    height: 32rpx;
+    margin-left: 40rpx;
+}
+
+.header .icons .icon.search {
+    width: 31rpx;
+}
+
+.header .icons .icon.scanning {
+    width: 32rpx;
+}
+
+.header .icons .icon.mine {
+    width: 34rpx;
+}
+
+.header .nav {
+    height: calc(100% - 88rpx);
+    background-repeat: repeat-y;
+    background-position: top;
+    background-size: cover;
+    position: relative;
+    padding: 59rpx 40rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.header .nav .border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 59rpx;
+}
+
+.header .nav .border.b-border {
+    top: unset;
+    bottom: 0;
+}
+
+.header .nav .nav-item {
+    height: 75rpx;
+    margin-top: 10rpx;
+    position: relative;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.header .nav .nav-item:first-child {
+    margin-top: 0;
+}
+
+.header .nav .nav-item .first-nav {
+    box-sizing: border-box;
+    border-bottom: 2rpx solid rgba(206, 161, 90, 0.6);
+    display: block;
+    height: 75rpx;
+    width: 100%;
+    line-height: 75rpx;
+    color: #333333;
+    font-size: 28rpx;
+}
+
+.header .nav .nav-item .first-nav .has-text {
+    padding-right: 29rpx;
+    width: 12rpx;
+    height: 20rpx;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 12rpx 20rpx;
+}
+
+.header .nav .nav-item .icon-right {
+    width: 41rpx;
+    height: 26rpx;
+    position: absolute;
+    right: 0;
+    top: 28rpx;
+    transition: 0.5s;
+}
+
+.header .nav .nav-item .icon-right.change {
+    transform: rotate(180deg);
+    transform-origin: center 40%;
+}
+
+.header .nav .nav-item .second-box {
+    margin-left: 28rpx;
+}
+
+.header .nav .nav-item .second-box .s-item {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header .nav .nav-item .second-box .s-item .second-nav {
+    margin-right: 80rpx;
+    margin-top: 30rpx;
+    font-size: 24rpx;
+    color: #666666;
+}

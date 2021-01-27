@@ -1,14 +1,16 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/news/news",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "唐山博物馆",
     "navigationBarTextStyle":"black"
   },
+  "usingComponents": {"header": "/components/header/header"},
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
