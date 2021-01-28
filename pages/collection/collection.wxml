@@ -1,0 +1,15 @@
+<view class="page">
+  <header></header>
+  <view class="banner">
+    <image src="{{imgs.banner}}" mode="widthFix"></image>
+  </view>
+  <view class="cate-list">
+    <block wx:for="{{cate}}" wx:key="index">
+      <navigator class="catre-item" style="background-image: url('{{imgs.cate_bg}}')"
+        url="/pages/collect_list/collect_list?cate_id={{item.id}}" hover-class="none">
+        <text style="background-image: url('{{imgs.border_cate}}')">{{item.cate_name}}</text>
+        <view class="img" style="background-image: url('{{item.pic2}}')"></view>
+      </navigator>
+    </block>
+  </view>
+</view>

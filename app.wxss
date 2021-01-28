@@ -15,6 +15,7 @@ image {
 .white {
     background-color: #ffffff;
 }
+
 /* 超出省略 start */
 .one-line-ellipsis {
     overflow: hidden;
@@ -34,3 +35,70 @@ image {
 }
 
 /* 超出省略 end */
+
+
+/*搜索页和最新动态页共有样式*/
+.com-news-list .com-news-item {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    height: 160rpx;
+    margin-top: 14rpx;
+    border-bottom: 2rpx solid #f0f0f0;
+    padding: 24rpx;
+}
+
+.com-news-list .com-news-item .img {
+    margin-right: 31rpx;
+    flex-shrink: 0;
+    width: 240rpx;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10rpx;
+    background-size: cover;
+}
+
+.com-news-list .com-news-item .cont {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.com-news-list .com-news-item .cont .com-new-title {
+    font-size: 28rpx;
+    color: #333333;
+    line-height: 40rpx;
+    font-weight: normal;
+}
+
+.com-news-list .com-news-item .cont .com-new-time {
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.com-news-list .com-news-item .cont text {
+    display: block;
+    width: 75rpx;
+    height: 32rpx;
+    background-color: #cf903a;
+    border-radius: 4rpx;
+    font-size: 24rpx;
+    color: #ffffff;
+    text-align: center;
+    line-height: 32rpx;
+}
+
+.com-news-list .com-news-item .cont text.bg2 {
+    background-color: #a5a59f;
+}
+
+.com-news-list .com-news-item .cont text.bg3 {
+    background-color: #29ac83;
+}
+
+.com-news-list .com-news-item .cont text.bg4 {
+    background-color: #f56f40;
+}

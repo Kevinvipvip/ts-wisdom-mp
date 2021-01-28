@@ -1,3 +1,39 @@
 <view class="page">
-<header></header>
+  <header></header>
+
+  <view class="tab-box">
+    <view class="tab"
+          style="{{tab===0?'color: #cf903a;':'color: #666666;'}}background-image: url('{{tab===0?imgs.tab_left_select:imgs.tab_left}}'), url('{{tab===0?imgs.tab_right_select:imgs.tab_right}}');"
+          bindtap="tab_click" data-id="0">全部
+    </view>
+    <view class="tab"
+          style="{{tab===1?'color: #cf903a;':'color: #666666;'}}background-image: url('{{tab===1?imgs.tab_left_select:imgs.tab_left}}'), url('{{tab===1?imgs.tab_right_select:imgs.tab_right}}');"
+          bindtap="tab_click" data-id="1">新闻
+    </view>
+    <view class="tab"
+          style="{{tab===2?'color: #cf903a;':'color: #666666;'}}background-image: url('{{tab===2?imgs.tab_left_select:imgs.tab_left}}'), url('{{tab===2?imgs.tab_right_select:imgs.tab_right}}');"
+          bindtap="tab_click" data-id="2">公告
+    </view>
+    <view class="tab"
+          style="{{tab===3?'color: #cf903a;':'color: #666666;'}}background-image: url('{{tab===3?imgs.tab_left_select:imgs.tab_left}}'), url('{{tab===3?imgs.tab_right_select:imgs.tab_right}}');"
+          bindtap="tab_click" data-id="3">展览
+    </view>
+    <view class="tab"
+          style="{{tab===4?'color: #cf903a;':'color: #666666;'}}background-image: url('{{tab===4?imgs.tab_left_select:imgs.tab_left}}'), url('{{tab===4?imgs.tab_right_select:imgs.tab_right}}');"
+          bindtap="tab_click" data-id="4">活动
+    </view>
+  </view>
+
+  <view class="com-news-list">
+    <block wx:for="{{news}}" wx:key="index">
+      <navigator url="/pages/detail_news/detail_news?id={{item.id}}" class="com-news-item" hover-class="none">
+        <view class="img" style="background-image: url('{{item.pic}}')"></view>
+        <view class="cont">
+          <view class="com-new-title two-line-ellipsis">{{item.title}}</view>
+          <view class="com-new-time">{{item.create_time}}</view>
+          <text class="bg{{item.type}}">{{item.type_name}}</text>
+        </view>
+      </navigator>
+    </block>
+  </view>
 </view>

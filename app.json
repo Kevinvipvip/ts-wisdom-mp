@@ -1,7 +1,12 @@
 {
   "pages":[
     "pages/index/index",
+
     "pages/news/news",
+    "pages/detail_news/detail_news",
+    
+    "pages/collection/collection",
+
     "pages/logs/logs"
   ],
   "window":{

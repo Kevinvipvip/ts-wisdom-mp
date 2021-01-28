@@ -1,8 +1,8 @@
 <view class="header" style="{{show_nav?'height: 100vh':'height: 88rpx'}}">
   <view class="fiex-header">
-    <view class="logo">
+    <navigator class="logo" open-type="redirect" url="/pages/index/index" hover-class="none">
       <image src="{{imgs.logo}}" mode="withFix"></image>
-    </view>
+    </navigator>
     <view class="icons">
       <view class="icon mine">
         <image src="{{imgs.mine}}" mode="withFix"></image>

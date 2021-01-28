@@ -1,1 +1,19 @@
-/* pages/news/news.wxss */
+.tab-box {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100rpx;
+    margin-top: 2rpx;
+}
+
+.tab-box .tab {
+    padding: 0 26rpx;
+    margin: 0 20rpx;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: left, right;
+    background-size: 12rpx 25rpx;
+    font-size: 28rpx;
+    color: #666666;
+}

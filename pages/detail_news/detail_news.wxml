@@ -1,0 +1,45 @@
+<view class="page">
+  <header></header>
+
+  <view class="cont white">
+    <view class="new-detail-title">{{detail.title}}</view>
+    <view class="attr">
+      <text>发布时间：{{detail.create_time}}</text>
+      <text>浏览量：{{detail.views}}</text>
+    </view>
+    <view class="rich-text">
+      <import src="../../wxParse/wxParse.wxml"/>
+      <template is="wxParse" data="{{wxParseData:rich_text.nodes}}"/>
+    </view>
+
+    <view class="share">分享至
+      <view class="icon" bindtap="share">
+        <image src="{{imgs.sina}}" mode="widthFix"></image>
+      </view>
+      <view class="icon">
+        <image src="{{imgs.wechat}}" mode="widthFix"></image>
+      </view>
+      <view class="icon">
+        <image src="{{imgs.qq}}" mode="widthFix"></image>
+      </view>
+    </view>
+
+    <view class="page-box" wx:if="{{news_list.length>0}}">
+      <view wx:if="{{prev_i === news_list.length-1}}" class="prev" bindtap="prev_pages"
+            data-id="{{news_list[prev_i].id}}">
+        上一篇：没有上一篇了
+      </view>
+      <view class="prev one-line-ellipsis" wx:else bindtap="prev_pages"
+            data-id="{{news_list[prev_i].id}}">
+        上一篇：{{news_list[prev_i].title}}
+      </view>
+
+      <view class="next" wx:if="{{next_i===0}}" bindtap="next_pages" data-id="{{news_list[next_i].id}}">下一篇：没有下一篇了
+      </view>
+      <view class="next one-line-ellipsis" wx:else bindtap="next_pages" data-id="{{news_list[next_i].id}}">
+        下一篇：{{news_list[next_i].title}}
+      </view>
+    </view>
+
+  </view>
+</view>

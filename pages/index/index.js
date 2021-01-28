@@ -53,7 +53,6 @@ Page({
           app.format_time(res.list[i], 'end_time', 'yyyy.MM.dd');
         }
       }
-      console.log(res.list)
       this.setData({ exhibition: res.list });
     });
   },

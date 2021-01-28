@@ -1,0 +1,58 @@
+@import '/wxParse/wxParse.wxss';
+
+.cont {
+    padding: 0 24rpx;
+    margin-top: 5rpx;
+    margin-bottom: 14rpx;
+}
+
+.cont .new-detail-title {
+    font-weight: 400;
+    color: #000000;
+    opacity: 0.9;
+    font-size: 34rpx;
+    margin: 40rpx 0;
+}
+
+.cont .attr {
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.cont .attr text {
+    margin-right: 81rpx;
+}
+
+.cont .rich-text {
+    margin-top: 79rpx;
+    font-size: 28rpx;
+    text-align: justify;
+    line-height: 42rpx;
+    color: #666666;
+}
+
+.cont .share {
+    display: flex;
+    align-items: center;
+    font-size: 26rpx;
+    margin: 30rpx 0;
+    color: #333333;
+}
+
+.cont .share .icon {
+    margin-left: 40rpx;
+    width: 55rpx;
+    height: 55rpx;
+}
+
+.cont .page-box {
+    margin: 59rpx 0;
+}
+
+.cont .page-box .prev,
+.cont .page-box .next {
+    font-size: 26rpx;
+    color: #333333;
+    margin-top: 41rpx;
+    font-weight: bold;
+}
